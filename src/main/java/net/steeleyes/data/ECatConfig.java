@@ -94,7 +94,12 @@ public enum ECatConfig {
             "redstone_ore",
             "gold_ore",
             "diamond_ore",
-            "lapis_ore"
+            "lapis_ore",
+            "emerald_ore",
+            "air",
+            "stone:1",
+            "stone:3",
+            "stone:5"
     )),
     TrapList(".Trap.Ammo", Arrays.asList(  // Most common blocks first for efficiency
             "arrow:100:10"
