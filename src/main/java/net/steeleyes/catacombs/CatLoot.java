@@ -128,7 +128,7 @@ public class CatLoot {
                 } else if (pa[0].equalsIgnoreCase("lore")) {
                     List<String> lore = im.getLore();
                     if (lore == null) lore = new ArrayList<>();
-                    for (String s : pa[1].split("|"))
+                    for (String s : pa[1].split("[|]"))
                         if (s != null) lore.add(ChatColor.translateAlternateColorCodes('&', s.replaceAll("_", " ")));
                     im.setLore(lore);
                 } else {
