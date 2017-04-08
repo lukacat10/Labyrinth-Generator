@@ -36,6 +36,8 @@ public class CatConfig extends Config implements ICatConfig {
     private List<CatMat> BreakList = new ArrayList<CatMat>();
     private List<CatMat> PlaceList = new ArrayList<CatMat>();
 
+    public Boolean debugMode() { return getSBoolean(ECatConfig.debugMode.getStr()); }
+
     public Integer RadiusMax() {
         return getSInt(ECatConfig.RadiusMax.getStr());
     }

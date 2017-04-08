@@ -29,6 +29,9 @@ import org.bukkit.entity.EntityType;
 import java.util.List;
 
 public interface ICatConfig extends IConfig {
+
+    public Boolean debugMode();
+
     public Integer RadiusMax();
 
     public Integer floorDepth();

@@ -35,7 +35,6 @@ public class Config implements IConfig {
     public final Random rnd = new Random();
     protected File filename;
 
-
     private Integer RoomMax() { return getSInt(EConfig.RoomMax.getStr()); }
 
     private Integer RoomMin() { return getSInt(EConfig.RoomMin.getStr()); }

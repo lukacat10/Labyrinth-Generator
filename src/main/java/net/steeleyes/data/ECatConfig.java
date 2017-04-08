@@ -24,6 +24,7 @@ import java.util.Arrays;
 
 public enum ECatConfig {
 
+    debugMode("DebugMode", false),
     emptyChest("Admin.emptyChestonDelete", true),
     SecretDoorOnlyInDungeon("Admin.SecretDoorOnlyInDungeon", true),
     GoldOff("Admin.GoldOff", false),
