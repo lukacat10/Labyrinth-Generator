@@ -30,125 +30,125 @@ import java.util.List;
 
 public interface ICatConfig extends IConfig {
 
-    public Boolean debugMode();
+    Boolean debugMode();
 
-    public Integer RadiusMax();
+    Integer RadiusMax();
 
-    public Integer floorDepth();
+    Integer floorDepth();
 
-    public Integer roomDepth();
+    Integer roomDepth();
 
-    public Integer roofDepth();
+    Integer roofDepth();
 
-    public Integer extraDepth();
+    Integer extraDepth();
 
-    public String HutType();
+    String HutType();
 
-    public Boolean UnderFill();
+    Boolean UnderFill();
 
-    public Boolean OverFill();
+    Boolean OverFill();
 
-    public Boolean ResetButton();
+    Boolean ResetButton();
 
-    public Boolean emptyChest();
+    Boolean emptyChest();
 
-    public Boolean ProtectSpawners();
+    Boolean ProtectSpawners();
 
-    public Boolean SecretDoorOnlyInDungeon();
+    Boolean SecretDoorOnlyInDungeon();
 
-    public Boolean GoldOff();
+    Boolean GoldOff();
 
-    public Boolean RespawnInHut();
+    Boolean RespawnInHut();
 
-    public Boolean NoPvPInDungeon();
+    Boolean NoPvPInDungeon();
 
-    public Boolean NoArmourInDungeon();
+    Boolean NoArmourInDungeon();
 
-    public Boolean MobsSpawnOnlyUnderground();
+    Boolean MobsSpawnOnlyUnderground();
 
-    public Boolean MobsSpawnOnlyInDungeons();
+    Boolean MobsSpawnOnlyInDungeons();
 
-    public Boolean AdvancedCombat();
+    Boolean AdvancedCombat();
 
-    public Integer GroupRadius();
+    Integer GroupRadius();
 
-    public Integer GroupDepth();
+    Integer GroupDepth();
 
-    public Double GroupHpFactor();
+    Double GroupHpFactor();
 
-    public Integer SpawnRadius();
+    Integer SpawnRadius();
 
-    public Integer SpawnDepth();
+    Integer SpawnDepth();
 
-    public Integer MonsterRadius();
+    Integer MonsterRadius();
 
-    public Integer MonsterMax();
+    Integer MonsterMax();
 
-    public Integer DeathGearCost();
+    Integer DeathGearCost();
 
-    public Boolean DeathKeepGear();
+    Boolean DeathKeepGear();
 
-    public Double DeathExpKept();
+    Double DeathExpKept();
 
-    public Boolean ClickIronDoor();
+    Boolean ClickIronDoor();
 
-    //public  Boolean BossEnabled();
+    // Boolean BossEnabled();
 
-    public String Economy();
+    String Economy();
 
-    public List<String> BannedCommands();
+    List<String> BannedCommands();
 
-    public EntityType SpawnerType();
+    EntityType SpawnerType();
 
-    public Double Gold();
+    Double Gold();
 
-    public Material ShroomType();
+    Material ShroomType();
 
-    public Material AirType();
+    Material AirType();
 
-    public Material DoorMaterial();
+    Material DoorMaterial();
 
-    public Boolean NoTeleportIn();
+    Boolean NoTeleportIn();
 
-    public Boolean NoTeleportOut();
+    Boolean NoTeleportOut();
 
-    public Boolean isNatural(Block b);
+    Boolean isNatural(Block b);
 
-    public Boolean isBreakable(Block b);
+    Boolean isBreakable(Block b);
 
-    public Boolean isPlaceable(Block b);
+    Boolean isPlaceable(Block b);
 
-    public List<String> TrapList();
+    List<String> TrapList();
 
-    public List<String> LootSmallList();
+    List<String> LootSmallList();
 
-    public List<String> LootMediumList();
+    List<String> LootMediumList();
 
-    public List<String> LootBigList();
+    List<String> LootBigList();
 
-    public Boolean SmallEquipChance();
+    Boolean SmallEquipChance();
 
-    public Boolean MobDropReductionChance();
+    Boolean MobDropReductionChance();
 
-    public Boolean MedEquipChance();
+    Boolean MedEquipChance();
 
-    public Boolean MedSmallChance();
+    Boolean MedSmallChance();
 
-    public Boolean MedSweepOre();
+    Boolean MedSweepOre();
 
-    public Boolean BigEquipChance();
+    Boolean BigEquipChance();
 
-    public Boolean BigSmallChance();
+    Boolean BigSmallChance();
 
-    public Boolean MinorChance();
+    Boolean MinorChance();
 
-    public CatMat majorMat();
+    CatMat majorMat();
 
-    public CatMat minorMat();
+    CatMat minorMat();
 
-    public CatMat floorMat();
+    CatMat floorMat();
 
-    public CatMat roofMat();
+    CatMat roofMat();
 
-    public void setRadiusMax(int r);
+    void setRadiusMax(int r);
 }

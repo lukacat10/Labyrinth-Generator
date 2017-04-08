@@ -238,7 +238,7 @@ public enum ECatConfig {
     private String str;
     private Object def;
 
-    private ECatConfig(String str, Object def) {
+    ECatConfig(String str, Object def) {
         this.str = str;
         this.def = def;
     }

@@ -32,9 +32,9 @@ import java.util.List;
 
 public class CatConfig extends Config implements ICatConfig {
 
-    private List<CatMat> NaturalList = new ArrayList<CatMat>();
-    private List<CatMat> BreakList = new ArrayList<CatMat>();
-    private List<CatMat> PlaceList = new ArrayList<CatMat>();
+    private List<CatMat> NaturalList = new ArrayList<>();
+    private List<CatMat> BreakList = new ArrayList<>();
+    private List<CatMat> PlaceList = new ArrayList<>();
 
     public Boolean debugMode() { return getSBoolean(ECatConfig.debugMode.getStr()); }
 
