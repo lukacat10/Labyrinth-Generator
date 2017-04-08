@@ -63,7 +63,7 @@ public class CatCuboid extends Cuboid {
     }
 
 
-    public List<String> dump(Vector top) {
+    public List<String> dump (Vector top) {
         List<String> info = map();
         info.add(" ");
         for (int y = yl; y <= yh; y++)

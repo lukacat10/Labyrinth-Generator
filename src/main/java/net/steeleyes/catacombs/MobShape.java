@@ -43,9 +43,11 @@ public enum MobShape {
         return type;
     }
 
-    @SuppressWarnings("deprecation")
+
     public LivingEntity spawn(World world, Location loc) {
-        LivingEntity e = world.spawnCreature(loc, type);
+        //Removed in 1.9
+        //LivingEntity e = world.spawnCreature(loc, type);
+        LivingEntity e = (LivingEntity)world.spawnEntity(loc, type);
         return spawn(e);
     }
 

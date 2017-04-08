@@ -27,6 +27,12 @@ public class Vector {
     this.y = y;
     this.z = z;
   }
+
+  public Vector(org.bukkit.util.Vector vector){
+    this.x=vector.getBlockX();
+    this.y=vector.getBlockY();
+    this.z=vector.getBlockZ();
+  }
   
   @Override
   public String toString() {
