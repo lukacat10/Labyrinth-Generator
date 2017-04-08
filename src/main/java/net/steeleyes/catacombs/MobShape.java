@@ -35,7 +35,7 @@ public enum MobShape {
 
     private EntityType type;
 
-    private MobShape(EntityType type) {
+    MobShape(EntityType type) {
         this.type = type;
     }
 
