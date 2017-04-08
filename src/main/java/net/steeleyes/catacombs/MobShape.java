@@ -9,7 +9,9 @@ import org.bukkit.entity.*;
 public enum MobShape {
     // Standard creatures
     ZOMBIE(EntityType.ZOMBIE),
+    HUSK(EntityType.HUSK),
     SKELETON(EntityType.SKELETON),
+    STRAY(EntityType.STRAY),
     CREEPER(EntityType.CREEPER),
     PIG_ZOMBIE(EntityType.PIG_ZOMBIE),
     SPIDER(EntityType.SPIDER),

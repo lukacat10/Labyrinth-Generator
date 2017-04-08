@@ -22,6 +22,7 @@ package net.steeleyes.catacombs;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.*;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
@@ -78,7 +79,7 @@ public class CatMob {
 
     private void common_init() {
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        ent.setHealth(ent.getMaxHealth()); // Make sure the entity has plenty of hits for us to work with
+        ent.setHealth(ent.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue()); // Make sure the entity has plenty of hits for us to work with
         int num = CatUtils.countPlayerNear(ent, plugin.getCnf().GroupRadius(), plugin.getCnf().GroupDepth());
         level = (num < 1) ? 1 : num;
         cash = 4 + level * 2;
@@ -115,7 +116,7 @@ public class CatMob {
         if (hps <= 0) {
             ent.setHealth(1);
         } else {
-            ent.setHealth(ent.getMaxHealth());
+            ent.setHealth(ent.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue());
         }
         return hps <= 0;
     }

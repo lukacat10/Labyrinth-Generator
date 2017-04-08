@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -244,7 +245,7 @@ public class Monsters {
           }
           LivingEntity ent = (LivingEntity)e;
           //System.out.println("[Catacombs] Splash "+threat+" "+other);
-          ent.setHealth(ent.getMaxHealth());
+          ent.setHealth(ent.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
           ent.damage(dmg); // Make the mob go red
         }
       }
