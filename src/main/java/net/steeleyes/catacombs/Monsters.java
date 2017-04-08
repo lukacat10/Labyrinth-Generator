@@ -108,7 +108,8 @@ public class Monsters {
     last_strike.put(damager,new_time);
     return new WildResp(wild,delta);
   }
-  
+
+  /*
   public void playerHeals(CatConfig cnf,Player healer, Player healee) {
     if(!healee.isDead()){
       WildResp resp = isWild(healer,HEAL_PLAYER,null);
@@ -228,7 +229,9 @@ public class Monsters {
         evt.setDamage(100);
     }
   }
-  
+
+  */
+
   public void splashThreat(LivingEntity around, LivingEntity attacker, int dmg, int threat, int h, int v) {
     for(Entity e : around.getNearbyEntities(h,v,h)) {
       if(e instanceof LivingEntity) {
