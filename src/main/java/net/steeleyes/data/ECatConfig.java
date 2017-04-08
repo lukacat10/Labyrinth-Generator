@@ -63,7 +63,7 @@ public enum ECatConfig {
             "/home",
             "/sethome",
             "/homeset",
-            "/home set"
+            "/home set",
             "/tp",
             "/tphere",
             "/tpa",
@@ -117,7 +117,7 @@ public enum ECatConfig {
             "air",
             "stone:1",
             "stone:3",
-            "stone:5"
+            "stone:5",
             "clay",
             "water",
             "lava",
@@ -131,7 +131,7 @@ public enum ECatConfig {
             "wood",
             "mob_spawner",
             "obsidian",
-            "sandstone",
+            "sandstone"
     )),
     TrapList(".Trap.Ammo", Arrays.asList(  // Most common blocks first for efficiency
             "arrow:100:10"
