@@ -742,9 +742,8 @@ public class Catacombs extends JavaPlugin {
                 // GOLD ********************************************************
             } else if (cmd(p, args, "gold")) {
                 if (p != null) {
-                    String pname = p.getName();
                     if (economy != null) {
-                        double bal = economy.getBalance(pname);
+                        double bal = economy.getBalance(p);
                         inform(p, "You have " + economy.format(bal));
                     }
                 }
