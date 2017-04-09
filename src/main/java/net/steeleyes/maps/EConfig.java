@@ -49,7 +49,7 @@ public enum EConfig {
   private String str;
   private Object def;
   
-  private EConfig(String str, Object def) {
+  EConfig(String str, Object def) {
     this.str = str;
     this.def = def;
   }
