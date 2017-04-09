@@ -19,12 +19,9 @@
 */
 package net.steeleyes.maps;
 
-import net.steeleyes.data.Config;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class Level {
   private Grid grid;
   private final Vector2D start = new Vector2D();
