@@ -19,6 +19,8 @@
 */
 package net.steeleyes.maps;
 
+import net.steeleyes.data.Config;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ public class Room {
   private Direction room_dir;
   private Grid grid;
   private Boolean isRoom;
-  
+
   private Boolean special = false;
   private Direction special_dir;
   private PrePlanned room_map = null;
@@ -46,8 +48,8 @@ public class Room {
     if(down_list == null) {
       down_list = new ArrayList<PrePlanned>();
       down_list.add(new PrePlanned("original",PrePlanned.Type.DOWN, new String[] {
-        " D ",
-        "DVD"
+              " D ",
+              "DVD"
       }));
 //      down_list.add(new PrePlanned("down7x9",PrePlanned.Type.DOWN, new String[] {
 //        "    D    ",
@@ -59,7 +61,7 @@ public class Room {
 //        "#########"
 //      }));
     }
-  }      
+  }
   public static void setup_rooms() {
     if(room_list == null) {
       room_list = new ArrayList<PrePlanned>();
@@ -73,263 +75,263 @@ public class Room {
 //        "##XX#" 
 //      }));
       room_list.add(new PrePlanned("irreg7x8",PrePlanned.Type.ROOM, new String[] {
-        " ###    ",
-        " #.#    ",
-        "##..####",
-        "#......#",
-        "#...####",
-        "###.#   ",
-        "  ###   " 
+              " ###    ",
+              " #.#    ",
+              "##..####",
+              "#......#",
+              "#...####",
+              "###.#   ",
+              "  ###   "
       }));
       room_list.add(new PrePlanned("circle7x7",PrePlanned.Type.ROOM, new String[] {
-        "  ###  ",
-        " #...# ",
-        "#.....#",
-        "#.....#",
-        "#.....#",
-        " #...# ",
-        "  ###  "
+              "  ###  ",
+              " #...# ",
+              "#.....#",
+              "#.....#",
+              "#.....#",
+              " #...# ",
+              "  ###  "
       }));
       room_list.add(new PrePlanned("doortest9x9",PrePlanned.Type.ROOM, new String[] {
-        "  #####  ",
-        " #.#...# ",
-        "#.......#",
-        "##......#",
-        "#......##",
-        "#.......#",
-        "#.......#",
-        " #.#.#.# ",
-        "  #####  "
+              "  #####  ",
+              " #.#...# ",
+              "#.......#",
+              "##......#",
+              "#......##",
+              "#.......#",
+              "#.......#",
+              " #.#.#.# ",
+              "  #####  "
       }));
       room_list.add(new PrePlanned("circle9x9",PrePlanned.Type.ROOM, new String[] {
-        "  #####  ",
-        " #c....# ",
-        "#.......#",
-        "#...L...#",
-        "#..LLL..#",
-        "#...L...#",
-        "#.......#",
-        " #....c# ",
-        "  #####  "
+              "  #####  ",
+              " #c....# ",
+              "#.......#",
+              "#...L...#",
+              "#..LLL..#",
+              "#...L...#",
+              "#.......#",
+              " #....c# ",
+              "  #####  "
       }));
       room_list.add(new PrePlanned("chanting9x9",PrePlanned.Type.ROOM, new String[] {
-        "#########",
-        "#t.....t#",
-        "#.KKKKK.#",
-        "#.K,,,K.#",
-        "#.K,e,K.#",
-        "#.K,,,K.#",
-        "#.KK.KK.#",
-        "#t.....t#",
-        "#########"
+              "#########",
+              "#t.....t#",
+              "#.KKKKK.#",
+              "#.K,,,K.#",
+              "#.K,e,K.#",
+              "#.K,,,K.#",
+              "#.KK.KK.#",
+              "#t.....t#",
+              "#########"
       }));
       room_list.add(new PrePlanned("lavaCross9x9",PrePlanned.Type.ROOM, new String[] {
-        "  X###X  ",
-        " #LL.LL# ",
-        "XLLL.LLLX",
-        "#LLL.LLL#",
-        "#.......#",
-        "#LLL.LLL#",
-        "XLLL.LLLX",
-        " #LL.LL# ",
-        "  X###X  "
+              "  X###X  ",
+              " #LL.LL# ",
+              "XLLL.LLLX",
+              "#LLL.LLL#",
+              "#.......#",
+              "#LLL.LLL#",
+              "XLLL.LLLX",
+              " #LL.LL# ",
+              "  X###X  "
       }));
       room_list.add(new PrePlanned("cells9x9",PrePlanned.Type.ROOM, new String[] {
-        "  X###X  ",
-        " X.I.I.X ",
-        "X..I.I..X",
-        "#III.III#",
-        "#.......#",
-        "#III.III#",
-        "X..I.I..X",
-        " X.I.I.X ",
-        "  X###X  "
+              "  X###X  ",
+              " X.I.I.X ",
+              "X..I.I..X",
+              "#III.III#",
+              "#.......#",
+              "#III.III#",
+              "X..I.I..X",
+              " X.I.I.X ",
+              "  X###X  "
       }));
       room_list.add(new PrePlanned("web9x9",PrePlanned.Type.ROOM, new String[] {
-        "  #####  ",
-        " #Mw.wM# ",
-        "#wwwwwww#",
-        "#.wwwww.#",
-        "#.wwwww.#",
-        "#.wwwww.#",
-        "#wwwwwww#",
-        " #Mw.wM# ",
-        "  #####  "
+              "  #####  ",
+              " #Mw.wM# ",
+              "#wwwwwww#",
+              "#.wwwww.#",
+              "#.wwwww.#",
+              "#.wwwww.#",
+              "#wwwwwww#",
+              " #Mw.wM# ",
+              "  #####  "
       }));
       room_list.add(new PrePlanned("water9x9",PrePlanned.Type.ROOM, new String[] {
-        "  #####  ",
-        " #MW.WM# ",
-        "#WWWWWWW#",
-        "#.WWWWW.#",
-        "#.WWWWW.#",
-        "#.WWWWW.#",
-        "#WWWWWWW#",
-        " #MW.WM# ",
-        "  #####  "
+              "  #####  ",
+              " #MW.WM# ",
+              "#WWWWWWW#",
+              "#.WWWWW.#",
+              "#.WWWWW.#",
+              "#.WWWWW.#",
+              "#WWWWWWW#",
+              " #MW.WM# ",
+              "  #####  "
       }));
       room_list.add(new PrePlanned("bakery9x9",PrePlanned.Type.ROOM, new String[] {
-        "#########",
-        "#===.===#",
-        "#=.....=#",
-        "#=.....=#",
-        "#...f...#",
-        "#=.....=#",
-        "#=.....=#",
-        "#===.===#",
-        "#########"
+              "#########",
+              "#===.===#",
+              "#=.....=#",
+              "#=.....=#",
+              "#...f...#",
+              "#=.....=#",
+              "#=.....=#",
+              "#===.===#",
+              "#########"
       }));
       room_list.add(new PrePlanned("lavaJump9x9",PrePlanned.Type.ROOM, new String[] {
-        "  X###X  ",
-        " #LL.LL# ",
-        "XLLL.LLLX",
-        "#LLL.LLL#",
-        "#...L...#",
-        "#LLL.LLL#",
-        "XLLL.LLLX",
-        " #LL.LL# ",
-        "  X###X  "
+              "  X###X  ",
+              " #LL.LL# ",
+              "XLLL.LLLX",
+              "#LLL.LLL#",
+              "#...L...#",
+              "#LLL.LLL#",
+              "XLLL.LLLX",
+              " #LL.LL# ",
+              "  X###X  "
       }));
       room_list.add(new PrePlanned("range13x9",PrePlanned.Type.ROOM, new String[] {
-        "#############",
-        "#...........#",
-        "#...........#",
-        "#.IIIIIIIIII#",
-        "XxIx.xIx.xIcX",
-        "X1I2I1I1I1I.X",
-        "X2I2I2I2I2I.X",
-        "X2.2I2.2I2..X",
-        "X>X>X>X>X>XXX"
-      }));      
+              "#############",
+              "#...........#",
+              "#...........#",
+              "#.IIIIIIIIII#",
+              "XxIx.xIx.xIcX",
+              "X1I2I1I1I1I.X",
+              "X2I2I2I2I2I.X",
+              "X2.2I2.2I2..X",
+              "X>X>X>X>X>XXX"
+      }));
       room_list.add(new PrePlanned("Forge13x13",PrePlanned.Type.ROOM, new String[] {
-        "#############",
-        "#f#f#...#f#f#",
-        "#...........#",
-        "#...........#",
-        "#....W.L....#",
-        "#.....a.....#",
-        "#...........#",
-        "#.....a.....#",
-        "#....L.W....#",
-        "#...........#",
-        "#...........#",
-        "#f#f#...#f#f#",
-        "#############"
+              "#############",
+              "#f#f#...#f#f#",
+              "#...........#",
+              "#...........#",
+              "#....W.L....#",
+              "#.....a.....#",
+              "#...........#",
+              "#.....a.....#",
+              "#....L.W....#",
+              "#...........#",
+              "#...........#",
+              "#f#f#...#f#f#",
+              "#############"
       }));
       room_list.add(new PrePlanned("shroomFarm13x9",PrePlanned.Type.ROOM, new String[] {
-        "#############",
-        "#mmmmm.mmmmm#",
-        "#mmmmmmmmmmm#",
-        "#mmmmmmmmmmm#",
-        "#.mmmmmmmmm.#",
-        "#mmmmmmG#+#G#",
-        "#mmmmmmG...a#",
-        "#mmmmm.GfeTo#",
-        "#############"
+              "#############",
+              "#mmmmm.mmmmm#",
+              "#mmmmmmmmmmm#",
+              "#mmmmmmmmmmm#",
+              "#.mmmmmmmmm.#",
+              "#mmmmmmG#+#G#",
+              "#mmmmmmG...a#",
+              "#mmmmm.GfeTo#",
+              "#############"
       }));
       room_list.add(new PrePlanned("arches13x13",PrePlanned.Type.ROOM, new String[] {
-        "#############",
-        "#..A.....A..#",
-        "#..A.....A..#",
-        "#AA#AA#AA#AA#",
-        "#..A.....A..#",
-        "#..A..M..A..#",
-        "#AA#..c..#AA#",
-        "#..A..M..A..#",
-        "#..A.....A..#",
-        "#AA#AA#AA#AA#",
-        "#..A.....A..#",
-        "#..A.....A..#",
-        "#############"
-      }));      
+              "#############",
+              "#..A.....A..#",
+              "#..A.....A..#",
+              "#AA#AA#AA#AA#",
+              "#..A.....A..#",
+              "#..A..M..A..#",
+              "#AA#..c..#AA#",
+              "#..A..M..A..#",
+              "#..A.....A..#",
+              "#AA#AA#AA#AA#",
+              "#..A.....A..#",
+              "#..A.....A..#",
+              "#############"
+      }));
       room_list.add(new PrePlanned("maze13x13",PrePlanned.Type.ROOM, new String[] {
-        "#############",
-        "#M#.......#.#",
-        "#.#.#.###.#.#",
-        "#.#.#.#.#.#.#",
-        "#.#.#.#.#.#.#",
-        "#...#.#.#...#",
-        "#####.#.#####",
-        "#.....#.....#",
-        "X.#########.#",
-        "X.....#.....#",
-        "X.###.#####.#",
-        "X.cC#.......#",
-        "XXXX#########"
+              "#############",
+              "#M#.......#.#",
+              "#.#.#.###.#.#",
+              "#.#.#.#.#.#.#",
+              "#.#.#.#.#.#.#",
+              "#...#.#.#...#",
+              "#####.#.#####",
+              "#.....#.....#",
+              "X.#########.#",
+              "X.....#.....#",
+              "X.###.#####.#",
+              "X.cC#.......#",
+              "XXXX#########"
       }));
       room_list.add(new PrePlanned("barracks20x9",PrePlanned.Type.ROOM, new String[] {
-        "#############       ",
-        "#Zz........t#XXXXXXX",
-        "#...a..oo..Z#.KKKKKX",
-        "#Zz.T......z#tK,,,KX",
-        "#...f..oo...$..,e,KX",
-        "#Zz.o......z#tK,,,KX",
-        "#...o..oo..Z#.KKKKKX",
-        "#Zz........t#XXXXXXX",
-        "#############       "
+              "#############       ",
+              "#Zz........t#XXXXXXX",
+              "#...a..oo..Z#.KKKKKX",
+              "#Zz.T......z#tK,,,KX",
+              "#...f..oo...$..,e,KX",
+              "#Zz.o......z#tK,,,KX",
+              "#...o..oo..Z#.KKKKKX",
+              "#Zz........t#XXXXXXX",
+              "#############       "
       }));
       room_list.add(new PrePlanned("kitchen",PrePlanned.Type.ROOM, new String[] {
-        "   #####   ",
-        "  ##...##  ",
-        "###.....###",
-        "#c+.....+c#",
-        "###..T..###",
-        "#.........#",
-        "##f..T..f##",
-        " #f.....f# ",
-        " #f.....f# ",
-        " #..#L#..# ",
-        "  ## # ##  "
+              "   #####   ",
+              "  ##...##  ",
+              "###.....###",
+              "#c+.....+c#",
+              "###..T..###",
+              "#.........#",
+              "##f..T..f##",
+              " #f.....f# ",
+              " #f.....f# ",
+              " #..#L#..# ",
+              "  ## # ##  "
       }));
       room_list.add(new PrePlanned("column13x15",PrePlanned.Type.ROOM, new String[] {
-        " XX #####    ",
-        "Xc$X.....XX  ",
-        " X.........X ",
-        "#.....M.....#",
-        "#..#..#..#..#",
-        "#...........#",
-        "#...........#",
-        "Xt.#..#..#.tX",
-        "#...........#",
-        "#...........#",
-        "#..#..#..#..#",
-        "#.....M.....#",
-        " X.........X ",
-        "  XX.....XX  ",
-        "    #####    " 
+              " XX #####    ",
+              "Xc$X.....XX  ",
+              " X.........X ",
+              "#.....M.....#",
+              "#..#..#..#..#",
+              "#...........#",
+              "#...........#",
+              "Xt.#..#..#.tX",
+              "#...........#",
+              "#...........#",
+              "#..#..#..#..#",
+              "#.....M.....#",
+              " X.........X ",
+              "  XX.....XX  ",
+              "    #####    "
       }));
       room_list.add(new PrePlanned("treasure13x15",PrePlanned.Type.ROOM, new String[] {
-        "    XXXXX    ",
-        "  XXCctcCXX  ",
-        " X..##$##..X ",
-        "X...........X",
-        "X.M...M...M.X",
-        "X...........X",
-        "#IIII...IIII#",
-        "#...........#",
-        "#...........#",
-        "#...........#",
-        "#IIII...IIII#",
-        "#...........#",
-        " X.M.....M.X ",
-        "  XX.....XX  ",
-        "    #####    " 
+              "    XXXXX    ",
+              "  XXCctcCXX  ",
+              " X..##$##..X ",
+              "X...........X",
+              "X.M...M...M.X",
+              "X...........X",
+              "#IIII...IIII#",
+              "#...........#",
+              "#...........#",
+              "#...........#",
+              "#IIII...IIII#",
+              "#...........#",
+              " X.M.....M.X ",
+              "  XX.....XX  ",
+              "    #####    "
       }));
       room_list.add(new PrePlanned("lavaSpiral13x15",PrePlanned.Type.ROOM, new String[] {
-        "    #####    ",
-        "  XX.....XX  ",
-        " X.........X ",
-        "#..LLLLLLL..#",
-        "#........L..#",
-        "#..LLLLL.L..#",
-        "#..L...L.L..#",
-        "#..L.#w#.L..#",
-        "#..L.IcI.L..#",
-        "#..L.#I#.L..#",
-        "#..L.....L..#",
-        "#..LLLLLLL..#",
-        " X.........X ",
-        "  XX.....XX  ",
-        "    #####    " 
+              "    #####    ",
+              "  XX.....XX  ",
+              " X.........X ",
+              "#..LLLLLLL..#",
+              "#........L..#",
+              "#..LLLLL.L..#",
+              "#..L...L.L..#",
+              "#..L.#w#.L..#",
+              "#..L.IcI.L..#",
+              "#..L.#I#.L..#",
+              "#..L.....L..#",
+              "#..LLLLLLL..#",
+              " X.........X ",
+              "  XX.....XX  ",
+              "    #####    "
       }));
     }
   }
@@ -364,7 +366,7 @@ public class Room {
       sizeRoomRandom(list);
     }
   }
-  
+
   private void sizeRoomRandom(List<PrePlanned> list) {
     isRoom = true;
     if(cnf.SpecialChance()) {
@@ -374,7 +376,7 @@ public class Room {
       size_y = cnf.RoomSize()+2;
     }
   }
-  
+
   private void sizeRoomSpecial(List<PrePlanned> list) {
     isRoom = true;
     special = true;
@@ -383,7 +385,7 @@ public class Room {
     size_x = room_map.sx(special_dir);
     size_y = room_map.sy(special_dir);
   }
-  
+
   private void placeRandom() {
     if(grid.getSize().x-size_x+1<1 || grid.getSize().y-size_y+1<1) {
       origin_x = 0;
@@ -399,8 +401,8 @@ public class Room {
       return list.get(cnf.nextInt(list.size()));
     return null;
   }
-  
-  
+
+
   public Boolean isRoom() {
     return isRoom && floorArea()>=8;
   }
@@ -482,8 +484,8 @@ public class Room {
       for(int s=0;s<10;s++) { // Have a few attempts to place each room
         dir = placeFrom(from);
         ok = (dir != null) && grid.fits(origin_x,origin_y,size_x,size_y) &&
-             grid.get(wayin_x,wayin_y) == Square.WALL &&
-             grid.isFloor(dir.backwards_x(wayin_x),dir.backwards_y(wayin_y));
+                grid.get(wayin_x,wayin_y) == Square.WALL &&
+                grid.isFloor(dir.backwards_x(wayin_x),dir.backwards_y(wayin_y));
         //System.out.println(" Fits:"+ok+" orig_dir:"+from.room_dir+" dir:"+dir+" attempts:"+from.extension_attempts);
         if(ok) {
           break;
@@ -501,13 +503,13 @@ public class Room {
       } else {
         grid.renderEmpty(origin_x,origin_y,size_x,size_y);
       }
-      build_door(dir);  
+      build_door(dir);
       gen = from.gen+1;
       dressRoom();
     }
     return ok;
   }
-  
+
   public Boolean endRoom(Room from) {
     int cnt = 0;
     Boolean ok = false;
@@ -517,8 +519,8 @@ public class Room {
       for(int s=0;s<30;s++) { // Have a few attempts to place each room
         dir = placeFrom(from);
         ok = (dir != null) && grid.fits(origin_x,origin_y,size_x,size_y) &&
-             grid.get(wayin_x,wayin_y) == Square.WALL &&
-             grid.isFloor(dir.backwards_x(wayin_x),dir.backwards_y(wayin_y));
+                grid.get(wayin_x,wayin_y) == Square.WALL &&
+                grid.isFloor(dir.backwards_x(wayin_x),dir.backwards_y(wayin_y));
         //System.out.println(" Fits:"+ok+" orig_dir:"+from.room_dir+" dir:"+dir+" attempts:"+from.extension_attempts);
         if(ok) {
           break;
@@ -527,7 +529,7 @@ public class Room {
       if(!ok)
         sizeRoomSpecial(down_list);
       from.extension_attempts++;
-      cnt++;      
+      cnt++;
     } while (cnt<2000 && !ok); // Try different sizes and shapes
 
     if(ok) {
@@ -536,7 +538,7 @@ public class Room {
         grid.renderSpecial(origin_x,origin_y,room_map,special_dir);
       } else {
         grid.renderEmpty(origin_x,origin_y,size_x,size_y);
-      }      
+      }
       gen = from.gen+1;
       if(grid.get(wayin_x,wayin_y) == Square.DOWN) {
         grid.set(dir.backwards_x(wayin_x),dir.backwards_y(wayin_y),Square.FIXEDFLOORDOWN);
@@ -547,50 +549,50 @@ public class Room {
       } else {
         build_door(dir);
         // Find steps down as new location of end
-  //wayin_x =0;
-  //wayin_y =0;
+        //wayin_x =0;
+        //wayin_y =0;
         chestDoubleRandom();
         if(cnf.Chance(40))
-          objectRandom(Square.CAKE);        
+          objectRandom(Square.CAKE);
       }
     }
     return ok;
   }
-  
+
   public void build_door(Direction dir) {
-      Square door = cnf.DoorType();
-      if(door != Square.HIDDEN && cnf.DoubleDoorChance()) {
-        int left_x  = dir.left_x(wayin_x);
-        int left_y  = dir.left_y(wayin_y);
-        int right_x = dir.right_x(wayin_x);
-        int right_y = dir.right_y(wayin_y);
-        if(cnf.Chance(50)) {
-          if(grid.okForDoor(right_x,right_y, dir)) {
-            grid.fixDoor(right_x,right_y, dir, door);
-          } else if (grid.okForDoor(left_x,left_y, dir)) {
-            grid.fixDoor(left_x,left_y, dir, door);
-          }
-        } else {
-          if(grid.okForDoor(left_x,left_y, dir)) {
-            grid.fixDoor(left_x,left_y, dir, door);
-          } else if (grid.okForDoor(right_x,right_y, dir)) {
-            grid.fixDoor(right_x,right_y, dir, door);
-          }
+    Square door = cnf.DoorType();
+    if(door != Square.HIDDEN && cnf.DoubleDoorChance()) {
+      int left_x  = dir.left_x(wayin_x);
+      int left_y  = dir.left_y(wayin_y);
+      int right_x = dir.right_x(wayin_x);
+      int right_y = dir.right_y(wayin_y);
+      if(cnf.Chance(50)) {
+        if(grid.okForDoor(right_x,right_y, dir)) {
+          grid.fixDoor(right_x,right_y, dir, door);
+        } else if (grid.okForDoor(left_x,left_y, dir)) {
+          grid.fixDoor(left_x,left_y, dir, door);
+        }
+      } else {
+        if(grid.okForDoor(left_x,left_y, dir)) {
+          grid.fixDoor(left_x,left_y, dir, door);
+        } else if (grid.okForDoor(right_x,right_y, dir)) {
+          grid.fixDoor(right_x,right_y, dir, door);
         }
       }
-      grid.fixDoor(wayin_x,wayin_y, dir, door);    
-  }  
+    }
+    grid.fixDoor(wayin_x,wayin_y, dir, door);
+  }
 
   private void dressRoom() {
     if(cnf.EnchantChance())
       enchantRandom();
- 
+
     if(cnf.TrapChance())
       trapRandom();
-    
+
     if(cnf.ChestChance())
       chestRandom();
-    
+
     if(cnf.SpawnerChance())
       objectRandom(Square.SPAWNER);
 
@@ -603,10 +605,10 @@ public class Room {
 
     if(cnf.OvenChance())
       objectRandom(Square.FURNACE);
-    
+
     if(cnf.AnvilChance())
       objectRandom(Square.ANVIL);
-    
+
     if(!special && cnf.PoolChance())
       poolRandom();
 
@@ -663,7 +665,7 @@ public class Room {
     }
     return false;
   }
-  
+
   private void allFloor(Square blk,int inset) {
     int px = size_x-inset*2;
     int py = size_y-inset*2;
@@ -678,7 +680,7 @@ public class Room {
       }
     }
   }
-  
+
   private Boolean trapRandom() {
     wallLoc loc;
     if(true) {
@@ -687,17 +689,17 @@ public class Room {
         int dx = loc.dir.turn180().dx(1);
         int dy = loc.dir.turn180().dy(1);
         if(grid.get(loc.x,loc.y) == Square.WALL &&
-           grid.get(loc.x+dx,loc.y+dy) == Square.FLOOR &&  
-           grid.get(loc.x+dx*2,loc.y+dy*2) == Square.FLOOR &&    
-           grid.get(loc.x+dx*3,loc.y+dy*3) == Square.FLOOR ) {
+                grid.get(loc.x+dx,loc.y+dy) == Square.FLOOR &&
+                grid.get(loc.x+dx*2,loc.y+dy*2) == Square.FLOOR &&
+                grid.get(loc.x+dx*3,loc.y+dy*3) == Square.FLOOR ) {
           grid.set(loc.x,loc.y,Square.ARROW);
           grid.set(loc.x+dx,loc.y+dy,Square.RED2);
           grid.set(loc.x+dx*2,loc.y+dy*2,Square.RED1);
           grid.set(loc.x+dx*3,loc.y+dy*3,Square.PRESSURE);
           return true;
-        }        
+        }
       }
-    }    
+    }
     return false;
   }
 
@@ -720,7 +722,7 @@ public class Room {
     }
     return false;
   }
-  
+
   private Boolean enchantRandom() {
     int inset = 3;
 
@@ -738,21 +740,21 @@ public class Room {
             if(cnf.Chance(50) && grid.get(px1-2,py1+i) == Square.FLOOR)
               grid.set(px1-2,py1+i,Square.BOOKCASE);
             if(cnf.Chance(50) && grid.get(px1+2,py1-i) == Square.FLOOR)
-              grid.set(px1+2,py1-i,Square.BOOKCASE);          
+              grid.set(px1+2,py1-i,Square.BOOKCASE);
             if(cnf.Chance(50) && grid.get(px1-i,py1-2) == Square.FLOOR)
-              grid.set(px1-i,py1-2,Square.BOOKCASE);  
+              grid.set(px1-i,py1-2,Square.BOOKCASE);
             if(cnf.Chance(50) && grid.get(px1+i,py1+2) == Square.FLOOR)
-              grid.set(px1+i,py1+2,Square.BOOKCASE);  
+              grid.set(px1+i,py1+2,Square.BOOKCASE);
           }
           for(int i=-1;i<1;i++) {
             if(grid.get(px1-1,py1+i) == Square.FLOOR)
               grid.set(px1-1,py1+i,Square.FIXEDFLOOR);
             if(grid.get(px1+1,py1-i) == Square.FLOOR)
-              grid.set(px1+1,py1-i,Square.FIXEDFLOOR);          
+              grid.set(px1+1,py1-i,Square.FIXEDFLOOR);
             if(grid.get(px1-i,py1-1) == Square.FLOOR)
-              grid.set(px1-i,py1-1,Square.FIXEDFLOOR);  
+              grid.set(px1-i,py1-1,Square.FIXEDFLOOR);
             if(grid.get(px1+i,py1+1) == Square.FLOOR)
-              grid.set(px1+i,py1+1,Square.FIXEDFLOOR);  
+              grid.set(px1+i,py1+1,Square.FIXEDFLOOR);
           }
           return true;
         }
@@ -760,7 +762,7 @@ public class Room {
     }
     return false;
   }
-  
+
   private Boolean chestDoubleRandom() {
     int inset = 1;
 
@@ -789,17 +791,17 @@ public class Room {
     }
     return false;
   }
-  
+
   private void placeSign(Direction dir,int x, int y) {
     x = dir.forwards_x(x);
     y = dir.forwards_y(y);
     if(grid.get(dir.right_x(x),dir.right_y(y))==Square.FLOOR) {
       grid.set(dir.right_x(x),dir.right_y(y),Square.SIGNPOST);
     } else if(grid.get(dir.left_x(x),dir.left_y(y))==Square.FLOOR) {
-      grid.set(dir.left_x(x),dir.left_y(y),Square.SIGNPOST);      
+      grid.set(dir.left_x(x),dir.left_y(y),Square.SIGNPOST);
     }
   }
-  
+
   private class wallLoc {
     public int x;
     public int y;
@@ -810,7 +812,7 @@ public class Room {
       this.dir=dir;
     }
   }
-  
+
   private wallLoc wallLocation(Room from) {
     Direction dir = Direction.any(cnf.rnd);
 
@@ -827,7 +829,7 @@ public class Room {
     }
     return new wallLoc(wayin_x,wayin_y,dir);
   }
-  
+
   private Direction placeFrom(Room from) {
     wallLoc w = wallLocation(from);
     if(w==null)
