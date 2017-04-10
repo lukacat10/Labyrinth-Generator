@@ -110,6 +110,10 @@ public class CatConfig extends Config implements ICatConfig {
         return getSInt(ECatConfig.SkeletonPct.getStr());
     }
 
+    private Integer StrayPct() {
+        return getSInt(ECatConfig.SkeletonPct.getStr());
+    }
+
     private Integer WolfPct() {
         return getSInt(ECatConfig.WolfPct.getStr());
     }
@@ -138,11 +142,14 @@ public class CatConfig extends Config implements ICatConfig {
         return getSInt(ECatConfig.CreeperPct.getStr());
     }
 
+    private Integer HuskPct() { return getSInt(ECatConfig.HuskPct.getStr()); }
+
     private Integer IronDoorPct() {
         return getSInt(ECatConfig.IronDoorPct.getStr());
     }
 
-    //private Integer SilverFishPct()          { return getSInt(ECatConfig.SilverFishPct.getStr());  }
+    //private Integer SilverFishPct() { return getSInt(ECatConfig.SilverFishPct.getStr());  }
+
     private Double GoldMin() {
         return getSDouble(ECatConfig.GoldMin.getStr());
     }
@@ -235,12 +242,14 @@ public class CatConfig extends Config implements ICatConfig {
         return getSBoolean(ECatConfig.MobsSpawnOnlyInDungeons.getStr());
     }
 
-    //public  Boolean BossEnabled()            { return getSBoolean(ECatConfig.BossEnabled.getStr());  }
+    //public  Boolean BossEnabled() { return getSBoolean(ECatConfig.BossEnabled.getStr());  }
+
     public Boolean AdvancedCombat() {
         return false;
     }
 
-    //public  Boolean AdvancedCombat()         { return getSBoolean(ECatConfig.AdvancedCombat.getStr());  }
+    //public  Boolean AdvancedCombat() { return getSBoolean(ECatConfig.AdvancedCombat.getStr());  }
+
     public Integer GroupRadius() {
         return getSInt(ECatConfig.GroupRadius.getStr());
     }
@@ -471,16 +480,19 @@ public class CatConfig extends Config implements ICatConfig {
 
         if (r <= SpiderPct()) return EntityType.SPIDER;
         if (r <= SpiderPct() + SkeletonPct()) return EntityType.SKELETON;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct()) return EntityType.WOLF;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct()) return EntityType.PIG_ZOMBIE;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct() + CaveSpiderPct()) return EntityType.CAVE_SPIDER;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct()) return EntityType.BLAZE;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct())
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct()) return EntityType.STRAY;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct()) return EntityType.WOLF;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct()) return EntityType.PIG_ZOMBIE;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct()) return EntityType.CAVE_SPIDER;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct()) return EntityType.BLAZE;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct())
             return EntityType.CREEPER;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct() + EndermanPct())
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct() + EndermanPct())
             return EntityType.ENDERMAN;
-        if (r <= SpiderPct() + SkeletonPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct() + EndermanPct() + SlimePct())
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct() + EndermanPct() + SlimePct())
             return EntityType.SLIME;
+        if (r <= SpiderPct() + SkeletonPct() + StrayPct() + WolfPct() + PigmanPct() + CaveSpiderPct() + BlazePct() + CreeperPct() + EndermanPct() + SlimePct() + HuskPct())
+            return EntityType.HUSK;
         return EntityType.ZOMBIE;
     }
 
