@@ -1,6 +1,7 @@
 # Labyrinth-Generator
 Catacomb/Labyrinth/Dungeon plugin for Minecraft.
 
+/*
  * @author John Keay  <>(@Steeleyes, @Blockhead2, @LigerXT5)
  * @copyright Copyright (C) 2011
  * @license GNU GPL <http://www.gnu.org/licenses/>
