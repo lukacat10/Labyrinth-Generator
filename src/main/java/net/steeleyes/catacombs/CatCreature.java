@@ -38,7 +38,7 @@ public enum CatCreature {
   private EntityType type;
   private int hps;
   
-  private CatCreature(EntityType type, int hps) {
+  CatCreature(EntityType type, int hps) {
     this.type = type;  
     this.hps = hps;
   }

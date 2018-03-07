@@ -139,6 +139,7 @@ public class CatLoot {
 
         //Type
         try {
+            //TODO: This will break in 1.13!
             //Attempt to process as an integer in the depreciated materialbyitemid method
             m = Material.getMaterial(Integer.parseInt(td[0]));
         } catch (Exception ignored) {
@@ -192,6 +193,7 @@ public class CatLoot {
                 } else {
                     Enchantment e;
                     try {
+                        //TODO: This will break in 1.13!
                         e = Enchantment.getById(Integer.parseInt(pa[0]));
                     } catch (Exception ignored) {
                         e = Enchantment.getByName(pa[0]);

@@ -471,6 +471,7 @@ public class CatCuboid extends Cuboid {
         return 0;
     }
 
+    // Very weird detection for big chest counting if its surrounded on 3 sides by major/minor block or its sitting on grass? -T
     public Boolean isBigChest(Block blk) {
         if (blk.getType() != Material.CHEST)
             return false;

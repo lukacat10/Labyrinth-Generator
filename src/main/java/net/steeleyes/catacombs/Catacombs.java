@@ -918,12 +918,12 @@ public class Catacombs extends JavaPlugin {
 
                 // DEBUG
             } else if (cmd(p, args, "debug")) {
-//        ItemStack stk = new ItemStack(Material.IRON_SWORD);
-//        stk.addEnchantment(Enchantment.DAMAGE_ALL,5);
-//        stk.addEnchantment(Enchantment.KNOCKBACK,2);
-//        stk.addEnchantment(Enchantment.FIRE_ASPECT,2);
-//        stk.addEnchantment(Enchantment.LOOT_BONUS_MOBS,3);
-//        p.getWorld().dropItem(p.getLocation(), stk);
+                //ItemStack stk = new ItemStack(Material.IRON_SWORD);
+                //stk.addEnchantment(Enchantment.DAMAGE_ALL,5);
+                //stk.addEnchantment(Enchantment.KNOCKBACK,2);
+                //stk.addEnchantment(Enchantment.FIRE_ASPECT,2);
+                //stk.addEnchantment(Enchantment.LOOT_BONUS_MOBS,3);
+                //p.getWorld().dropItem(p.getLocation(), stk);
                 //Dungeon dung = dungeons.which(p.getLocation().getBlock());
                 //dung.buildWindows(Material.IRON_FENCE);
             } else {
@@ -947,7 +947,7 @@ public class Catacombs extends JavaPlugin {
             Dungeon dung = dungeons.which(p.getLocation().getBlock());
             if (dung != null)
                 return dung;
-            dung = dungeons.which(p.getTargetBlock((HashSet<Byte>) null, 1000));
+            dung = dungeons.which(p.getTargetBlock(null, 1000));
             if (dung != null)
                 return dung;
             inform(p, "Not in a dungeon (or not looking at one)");
