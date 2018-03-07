@@ -1,5 +1,3 @@
-/target/**
-
 .settings/
 .loadpath
 
@@ -16,4 +14,10 @@
 .classpath
 
 # IntelliJ Core
-.idea
+.idea/
+
+# Build Script
+build.sh
+
+# Maven Build Path
+target/
