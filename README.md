@@ -1,23 +1,30 @@
-# Labyrinth-Generator
-Catacomb/Labyrinth/Dungeon plugin for Minecraft.
-
-/*
- * @author John Keay  <>(@Steeleyes, @Blockhead2, @LigerXT5)
- * @copyright Copyright (C) 2011
- * @license GNU GPL <http://www.gnu.org/licenses/>
-
-    Catacombs is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Catacombs is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Catacombs.  If not, see <http://www.gnu.org/licenses/>.
+# Catacombs - Labyrinth-Generator
+## Catacomb/Labyrinth/Dungeon plugin for Minecraft.
 
 
+"Builds configurable dungeons under your feet for players to explore and loot. I wrote my own level builder but I guess it's a homage to those text based classics like Nethack and of course Angband." - @Blockhead2
+
+
+##Features:
+- Generates random multi-level dungeons.
+- Only builds in solid regions it considers natural. 
+- Can build anywhere by adding AIR to config.
+- Admins can build dungeons, Players can explore them.
+- All commands are integrated with Permissions.
+- Integrated with most common economy systems (using Vault) (optional)
+- Secret doors
+- Information persists using sqlite database (no setup required)
+- Only the toughest adventurers will survive without armour, weapons, food and torches.
+- Special chests at strategic points to add to the general loot.
+- Configurable Dungeon layout and content.
+- Dungeons can be size/configured so they work better with parties of players.
+- Admins can easily unprotect, reset, suspend, enable or fill dungeons in.
+- Multiple world compatible.
+
+##Credits:
+* @author John Keay  <>(@Steeleyes, @Blockhead2, @LigerXT5)
+* @copyright Copyright (C) 2011
+
+##Licence:
+- GNU GPL <http://www.gnu.org/licenses/>
 
