@@ -1,8 +1,10 @@
 # Catacombs - Labyrinth-Generator
 ## Catacomb/Labyrinth/Dungeon plugin for Minecraft.
 
+@Blockhead2
+> Builds configurable dungeons under your feet for players to explore and loot. I wrote my own level builder but I guess it's a homage to those text based classics like Nethack and of course Angband.
 
-"Builds configurable dungeons under your feet for players to explore and loot. I wrote my own level builder but I guess it's a homage to those text based classics like Nethack and of course Angband." - @Blockhead2
+
 
 
 ##Features:
