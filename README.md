@@ -1,9 +1,9 @@
 # Labyrinth-Generator
 Catacomb/Labyrinth/Dungeon plugin for Minecraft.
 
-Catacombs 
-
-/*  This file is part of Catacombs.
+ * @author John Keay  <>(@Steeleyes, @Blockhead2, @LigerXT5)
+ * @copyright Copyright (C) 2011
+ * @license GNU GPL <http://www.gnu.org/licenses/>
 
     Catacombs is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,8 +17,6 @@ Catacombs
 
     You should have received a copy of the GNU General Public License
     along with Catacombs.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * @author John Keay  <>(@Steeleyes, @Blockhead2, @LigerXT5)
- * @copyright Copyright (C) 2011
- * @license GNU GPL <http://www.gnu.org/licenses/>
-*/
+
+
+
