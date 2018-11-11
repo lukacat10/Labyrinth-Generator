@@ -24,7 +24,6 @@ import net.steeleyes.data.Config;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class Level {
   private Grid grid;
   private final Vector2D start = new Vector2D();
@@ -99,9 +98,9 @@ public class Level {
           // area 20x20 70% clean
           // area 25x25 80% clean 85%
           // area 30x30 70% clean 80%clean 90%clean
-//          if(grid.utilized()>85.0 || ((float)n.gen() < (float)max_gen*0.75 && (max_gen-n.gen()>4))) {
+          // if(grid.utilized()>85.0 || ((float)n.gen() < (float)max_gen*0.75 && (max_gen-n.gen()>4))) {
           if(grid.utilized()>85.0) {
-          //if(grid.utilized()>55.0) {
+          // if(grid.utilized()>55.0) {
             from = null;
           } else {
             from = n;

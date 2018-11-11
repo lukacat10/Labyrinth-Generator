@@ -24,6 +24,7 @@ import java.util.Arrays;
 
 public enum ECatConfig {
 
+    debugMode("DebugMode", false),
     emptyChest("Admin.emptyChestonDelete", true),
     SecretDoorOnlyInDungeon("Admin.SecretDoorOnlyInDungeon", true),
     GoldOff("Admin.GoldOff", false),
@@ -36,7 +37,7 @@ public enum ECatConfig {
     MobDropReductionPct("Admin.MobDropReductionPct", 100),
     NoTeleportIn("Admin.NoTeleportIn", true),
     NoTeleportOut("Admin.NoTeleportOut", true),
-    //BossEnabled             ("Admin.BossEnabled", false),
+    //BossEnabled("Admin.BossEnabled", false),
     Economy("Admin.Economy", "any"),
     AdvancedCombat("Admin.AdvancedCombat", false),
     GroupRadius("Admin.Group.Radius", 50),
@@ -63,7 +64,7 @@ public enum ECatConfig {
             "/home",
             "/sethome",
             "/homeset",
-            "/home set"
+            "/home set",
             "/tp",
             "/tphere",
             "/tpa",
@@ -117,7 +118,7 @@ public enum ECatConfig {
             "air",
             "stone:1",
             "stone:3",
-            "stone:5"
+            "stone:5",
             "clay",
             "water",
             "lava",
@@ -131,7 +132,7 @@ public enum ECatConfig {
             "wood",
             "mob_spawner",
             "obsidian",
-            "sandstone",
+            "sandstone"
     )),
     TrapList(".Trap.Ammo", Arrays.asList(  // Most common blocks first for efficiency
             "arrow:100:10"
@@ -139,6 +140,7 @@ public enum ECatConfig {
 
     SpiderPct(".Mob.Type.SpiderPct", 5),
     SkeletonPct(".Mob.Type.SkeletonPct", 25),
+    StrayPct(".Mob.Type.StrayPct", 5),
     WolfPct(".Mob.Type.WolfPct", 7),
     PigmanPct(".Mob.Type.PigmanPct", 8),
     CaveSpiderPct(".Mob.Type.CaveSpiderPct", 10),
@@ -146,6 +148,7 @@ public enum ECatConfig {
     CreeperPct(".Mob.Type.CreeperPct", 5),
     EndermanPct(".Mob.Type.EndermanPct", 0),
     SlimePct(".Mob.Type.SlimePct", 0),
+    HuskPct(".Mob.Type.HuskPct", 5),
     //SilverFishPct(".Mob.Type.SilverFishPct",5),
     GoldMin(".Mob.Gold.Min", 1),
     GoldMax(".Mob.Gold.Max", 10),
@@ -237,7 +240,7 @@ public enum ECatConfig {
     private String str;
     private Object def;
 
-    private ECatConfig(String str, Object def) {
+    ECatConfig(String str, Object def) {
         this.str = str;
         this.def = def;
     }

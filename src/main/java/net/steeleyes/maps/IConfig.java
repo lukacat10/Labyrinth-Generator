@@ -20,20 +20,19 @@
 package net.steeleyes.maps;
 
 public interface IConfig {
-  public  Boolean MedHalfEmpty();
-  public  Boolean SandChance();
-  public  Boolean ChestChance();
-  public  Boolean SpawnerChance();
-  public  Boolean EnchantChance();
-  public  Boolean TrapChance();
-  public  Boolean PoolChance();
-  public  Boolean FullPoolChance();
-  public  Boolean SpecialChance();
-  public  Boolean CorridorChance();
-  public  Boolean ShroomChance();
-  public  Boolean BenchChance();
-  public  Boolean AnvilChance();
-  public  Boolean OvenChance();
-  public  Boolean DoubleDoorChance();
-  
+  Boolean MedHalfEmpty();
+  Boolean SandChance();
+  Boolean ChestChance();
+  Boolean SpawnerChance();
+  Boolean EnchantChance();
+  Boolean TrapChance();
+  Boolean PoolChance();
+  Boolean FullPoolChance();
+  Boolean SpecialChance();
+  Boolean CorridorChance();
+  Boolean ShroomChance();
+  Boolean BenchChance();
+  Boolean AnvilChance();
+  Boolean OvenChance();
+  Boolean DoubleDoorChance();
 }

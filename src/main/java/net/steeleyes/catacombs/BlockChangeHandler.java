@@ -78,7 +78,6 @@ public class BlockChangeHandler implements Runnable {
         }
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public void run() {
         int maxChanges = plugin.getCnf().getMaxChangesPerSecond();

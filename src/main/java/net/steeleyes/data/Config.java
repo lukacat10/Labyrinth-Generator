@@ -35,7 +35,6 @@ public class Config implements IConfig {
     public final Random rnd = new Random();
     protected File filename;
 
-
     private Integer RoomMax() { return getSInt(EConfig.RoomMax.getStr()); }
 
     private Integer RoomMin() { return getSInt(EConfig.RoomMin.getStr()); }
@@ -244,15 +243,15 @@ public class Config implements IConfig {
     protected void setSP(String path, Object val) {
         if (path.substring(0, 1).equals(".")) {
             if (fcnf.get(style + path) != null) {
-                fcnf.set(style + path, (Object) val);
+                fcnf.set(style + path, val);
             }
             if (fcnf.get(def_style + path) != null) {
-                fcnf.set(def_style + path, (Object) val);
+                fcnf.set(def_style + path, val);
             }
             path = path.substring(1);
         }
         if (fcnf.get(path) != null) {
-            fcnf.set(path, (Object) val);
+            fcnf.set(path, val);
         }
     }
 
@@ -297,7 +296,7 @@ public class Config implements IConfig {
 
     protected List<Boolean> getSBooleanList(String path) {
         Object o = getSP(path);
-        ArrayList<Boolean> res = new ArrayList<Boolean>();
+        ArrayList<Boolean> res = new ArrayList<>();
         if (o instanceof List) {
             for (Object i : (List) o) {
                 if (i instanceof Boolean) {
@@ -314,7 +313,7 @@ public class Config implements IConfig {
 
     protected List<Integer> getSIntList(String path) {
         Object o = getSP(path);
-        ArrayList<Integer> res = new ArrayList<Integer>();
+        ArrayList<Integer> res = new ArrayList<>();
         if (o instanceof List) {
             for (Object i : (List) o) {
                 if (i instanceof Integer) {
@@ -333,7 +332,7 @@ public class Config implements IConfig {
 
     protected List<Double> getSDoubleList(String path) {
         Object o = getSP(path);
-        ArrayList<Double> res = new ArrayList<Double>();
+        ArrayList<Double> res = new ArrayList<>();
         if (o instanceof List) {
             for (Object i : (List) o) {
                 if (i instanceof Double) {
@@ -352,7 +351,7 @@ public class Config implements IConfig {
 
     protected List<String> getSStringList(String path) {
         Object o = getSP(path);
-        ArrayList<String> res = new ArrayList<String>();
+        ArrayList<String> res = new ArrayList<>();
         if (o instanceof List) {
             for (Object i : (List) o) {
                 if (i instanceof String) {

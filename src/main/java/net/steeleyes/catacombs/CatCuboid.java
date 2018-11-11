@@ -63,7 +63,7 @@ public class CatCuboid extends Cuboid {
     }
 
 
-    public List<String> dump(Vector top) {
+    public List<String> dump (Vector top) {
         List<String> info = map();
         info.add(" ");
         for (int y = yl; y <= yh; y++)
@@ -471,6 +471,7 @@ public class CatCuboid extends Cuboid {
         return 0;
     }
 
+    // Very weird detection for big chest counting if its surrounded on 3 sides by major/minor block or its sitting on grass? -T
     public Boolean isBigChest(Block blk) {
         if (blk.getType() != Material.CHEST)
             return false;

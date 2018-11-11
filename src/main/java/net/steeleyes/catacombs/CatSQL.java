@@ -255,10 +255,10 @@ public class CatSQL {
 
             if(ex==0 && ey==0 && ez==0) version = "mysql";
 
-            CatCuboid.Type t = (hut==1)?CatCuboid.Type.HUT:CatCuboid.Type.LEVEL;
-            CatCuboid cube = new CatCuboid(world,xl,yl,zl,xh,yh,zh,t);
+            CatCuboid.Type t = (hut==1) ? CatCuboid.Type.HUT : CatCuboid.Type.LEVEL;
+            CatCuboid cube = new CatCuboid(world, xl, yl, zl, xh, yh, zh, t);
             if(ex==0 && ey==0 && ez==0) {
-              Vector v = cube.guessEndLocation();
+              Vector v = new Vector(cube.guessEndLocation());
               if(v!=null) {
                 ex = v.x;
                 ey = v.y;

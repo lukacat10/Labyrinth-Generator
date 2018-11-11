@@ -20,6 +20,7 @@
 package net.steeleyes.catacombs;
 
 import org.bukkit.Location;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageEvent;
 
@@ -54,8 +55,11 @@ public class Mob {
   public void damage(EntityDamageEvent evt) {
     hps = ((Double)(hps - evt.getDamage())).intValue();
     evt.setDamage(1);
-    if(hps<=0)       ent.setHealth(1);
-    else       ent.setHealth(ent.getMaxHealth());
+    if(hps<=0) {
+      ent.setHealth(1);
+    } else {
+      ent.setHealth(ent.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
+    }
   }
   
   public Boolean isDead() {
