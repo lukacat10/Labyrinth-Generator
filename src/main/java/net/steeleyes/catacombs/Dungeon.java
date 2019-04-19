@@ -845,11 +845,11 @@ public class Dungeon implements Listener {
     //
     /////////////////////////////////////////////////////////////////////////////
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockPlace(BlockPlaceEvent event) {
         Block blk = event.getBlockPlaced();
 
-        // Special feature to allow players to put torches in dungeons in worldguard zones
+        // Special feature to allow players to put torches in dungeons in other plugin protected zones (WG,GP)
         if (event.isCancelled()) {
             if (isInRaw(blk) && plugin.getCnf().isPlaceable(blk)) event.setCancelled(false);
             return;
@@ -872,6 +872,7 @@ public class Dungeon implements Listener {
         }
     }
 
+    //Prevent Grass Spread in dungeon
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onBlockSpread(BlockSpreadEvent event) {
         Block blk = event.getBlock();
@@ -879,11 +880,13 @@ public class Dungeon implements Listener {
             event.setCancelled(true);
     }
 
+    //Prevent fire spread/lighting in dungeon
     @EventHandler(priority = EventPriority.LOW)
     public void onBlockIgnite(BlockIgniteEvent event) {
         if (isInRaw(event.getBlock()) && !event.isCancelled()) event.setCancelled(true);
     }
 
+    //Prevent blocks from burning up in dungeon
     @EventHandler(priority = EventPriority.LOW)
     public void onBlockBurn(BlockBurnEvent event) {
         if (isInRaw(event.getBlock()) && !event.isCancelled()) event.setCancelled(true);
@@ -924,7 +927,6 @@ public class Dungeon implements Listener {
             }
     }
 
-    @SuppressWarnings("deprecation")
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerInteract(PlayerInteractEvent event) {
         Block blk = event.getClickedBlock();
@@ -965,7 +967,7 @@ public class Dungeon implements Listener {
         Player player = event.getPlayer();
         Block from = event.getFrom().getBlock();
         Block to = event.getTo().getBlock();
-        if (event.getCause() == TeleportCause.COMMAND) {
+        if (event.getCause().equals(TeleportCause.COMMAND) || event.getCause().equals(TeleportCause.CHORUS_FRUIT) || event.getCause().equals(TeleportCause.ENDER_PEARL)) {
             if (plugin.getCnf().NoTeleportIn() && isProtected(to) &&
                     !plugin.hasPermission(player, "catacombs.admin")) {
                 player.sendMessage("Teleporting to a place inside a dungeon is disabled");

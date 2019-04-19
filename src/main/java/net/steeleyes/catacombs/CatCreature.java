@@ -38,7 +38,7 @@ public enum CatCreature {
   private EntityType type;
   private int hps;
   
-  private CatCreature(EntityType type, int hps) {
+  CatCreature(EntityType type, int hps) {
     this.type = type;  
     this.hps = hps;
   }
@@ -49,9 +49,12 @@ public enum CatCreature {
   
   public int getHits() {
     return hps;
-  }  
+  }
+
   public LivingEntity spawn(World world, Location loc) {
-    LivingEntity e = world.spawnCreature(loc, type);
+    //Changed in 1.9
+    //LivingEntity e = world.spawnCreature(loc, type);
+    LivingEntity e = (LivingEntity) world.spawnEntity(loc, type);
     return spawn(e);
   }
   

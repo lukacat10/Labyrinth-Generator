@@ -9,7 +9,9 @@ import org.bukkit.entity.*;
 public enum MobShape {
     // Standard creatures
     ZOMBIE(EntityType.ZOMBIE),
+    HUSK(EntityType.HUSK),
     SKELETON(EntityType.SKELETON),
+    STRAY(EntityType.STRAY),
     CREEPER(EntityType.CREEPER),
     PIG_ZOMBIE(EntityType.PIG_ZOMBIE),
     SPIDER(EntityType.SPIDER),
@@ -35,7 +37,7 @@ public enum MobShape {
 
     private EntityType type;
 
-    private MobShape(EntityType type) {
+    MobShape(EntityType type) {
         this.type = type;
     }
 
@@ -43,9 +45,11 @@ public enum MobShape {
         return type;
     }
 
-    @SuppressWarnings("deprecation")
+
     public LivingEntity spawn(World world, Location loc) {
-        LivingEntity e = world.spawnCreature(loc, type);
+        //Removed in 1.9
+        //LivingEntity e = world.spawnCreature(loc, type);
+        LivingEntity e = (LivingEntity)world.spawnEntity(loc, type);
         return spawn(e);
     }
 

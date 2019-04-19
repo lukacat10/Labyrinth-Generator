@@ -40,34 +40,35 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.HashSet;
 import java.util.List;
+import java.util.logging.Level;
 
-/**
+/*
  * Release v3.4 ~ Edited version of 3.3 by jeussa
  * Permanently fixed light level code so it wont break after an update (try use reflection next time kid ;) )
  * Added more options to items that are added to lootchests
- * <p/>
+ *
  * Release v3.3
  * Fixed force light level code for Bukkit 1.5.2-R1.0, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v3.2
  * Fixed force light level code for Bukkit 1.5.2-R0.1, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v3.1
  * Fixed force light level code for Bukkit 1.5.1-R0.1, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v3.0
  * Fixed force light level code for Bukkit 1.5-R0.1, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v2.9
  * Fixed force light level code for Bukkit 1.4.7-R1.0, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v2.8
  * Fixed force light level code for Bukkit 1.4.6-R0.1, to avoid a crash during dungeon resets and startup
- * <p/>
+ *
  * Release v2.7
  * Changed spawn logic so that creatures in The_End spawn naturally
  * and are not effected by the world wide Catacomb settings.
- * <p/>
+ *
  * Release v2.6
  * Fixed force light level code for Bukkit 1.3.1-R1.0, to avoid a crash during
  * dungeon resets.
@@ -75,7 +76,7 @@ import java.util.List;
  * know when a given dungeon is going to execute a timed reset. If you don't give
  * the dungeon name, then it will give the reset time for the dungeon you are in
  * (or looking at).
- * <p/>
+ *
  * Release v2.5
  * Added a configuration to allow admins to reduce the amount of normal and special
  * loot that monsters drop in dungeons (MobDropReductionPct: 0 is the default).
@@ -102,7 +103,7 @@ import java.util.List;
  * dynamically loaded and unloaded.
  * Fixed an issue with the cached list of placeable blocks not refreshing after
  * a change of style.
- * <p/>
+ *
  * Release v2.4
  * Changed code to use Vault rather than WEPIF (for permissions) and Register
  * (for economy). This significantly simplifies the code, it's maintenance and
@@ -137,7 +138,7 @@ import java.util.List;
  * '/cat ironall' converts all loaded dungeons.
  * Added an option to allow admins to restrict dungeons so players can't enter
  * them in armour.
- * <p/>
+ *
  * Release v2.3
  * Changed the way book are created to allow different durability codes (this
  * allows BookWorm books to be given as chest loot).
@@ -154,7 +155,7 @@ import java.util.List;
  * to allow this - unlike wolves and pigmen - which makes this feature not very
  * useful for the moment unless you want a load of passive Endermen).
  * Add signs around the dungeons to make the end and the dungeon depth clearer.
- * <p/>
+ *
  * Release v2.2
  * Recoded the way the secret doors are built to resolve some intermittent door
  * problems a couple of users have had.
@@ -176,14 +177,14 @@ import java.util.List;
  * limit what you can and can't add to chests.
  * For example this is how to give a 100% chance of 1 diamond sword with
  * sharpness(5) and aspect of fire(2) on it 'diamond_sword:100:1:damage_all/5:fire_aspect/2'
- * <p/>
+ *
  * Release v2.1
  * Added configuration option for random anvils in dungeons.
  * Added work around for client side crash when chests in dungeons are deleted.
  * Fixed code so beds in dungeons are deleted correctly without dropping a bed.
  * Added work around for light levels not updating when the torches are removed
  * during a reset and no players are nearby.
- * <p/>
+ *
  * Release v2.0
  * Added an option to allow the button at the end to recall the presser rather
  * than resetting the dungeon. If both reset and recall options are true then the
@@ -194,13 +195,13 @@ import java.util.List;
  * side crash due to a bucket/minecraft problem, but it's probably better to do this
  * than leave the empty chests buried underground.
  * Updated deprecated function calls
- * <p/>
+ *
  * Release v1.9
  * Fixed some issues that occurred when players died in dungeons and the code tried
  * to restore their gear. These issues were caused by changes in the way bukkit
  * handled empty slots [you used to get Material.AIR returned now you more sensibly get
  * a null pointer]
- * <p/>
+ *
  * Release v1.8
  * Fixed the code so deleted and unprotected dungeons really do get removed from the
  * database.
@@ -209,7 +210,7 @@ import java.util.List;
  * start up and fix any existing legacy dungeons. Any open doors will be closed
  * by this operation. Also changed the reset door closing code to function correctly
  * with the new scheme.
- * <p/>
+ *
  * Release v1.7
  * Changed the default wepif.yml file that gets created so that DinnerBone's permission
  * handler (aka Bukkit permissions API) is off by default. It will not change wepif.yml
@@ -218,10 +219,10 @@ import java.util.List;
  * server. This should help protect users with simpler setups from running into
  * permissions problems. Admins actually using Bukkit permissions API will need
  * to enable it manually in the wepif.yml file.
- * <p/>
+ *
  * Release v1.6
  * Fixed a null pointer exception you get when all the permission resolvers are disabled.
- * <p/>
+ *
  * Release v1.5
  * Cake blocks are now restored on fences with air above them on reset. Partially
  * eaten cake is also restored to full.
@@ -242,13 +243,13 @@ import java.util.List;
  * Record the world name and the dungeon start coordinate in the map files from now on.
  * Updated the Enderman pickup and place events to use the latest versions of the
  * bukkit calls (EntityChangeBlockEvent).
- * <p/>
+ *
  * Release v1.4
  * Added extra code to fix any broken secret doors at start up.
  * Fixed a bug with the MobsOnlySpawnUnderground option (however mobs will still
  * spawn in forests and cave mouthes so be warned).
  * Added code to allow small amounts (fractions) if cash to be given for monster kills
- * <p/>
+ *
  * Release v1.3
  * Fixed potion loot so that splash potions can be created. The syntax is
  * like this potion/16425:10:1 (this means a 10% chance of splash potion of
@@ -281,7 +282,7 @@ import java.util.List;
  * The automatic reset is disabled by setting the reset time to zero (0s or 0m or 0h or 0d)
  * Made some changes to hopefully avoid some secret door operation issues.
  * Levers in dungeons now get cleared too when a dungeon is reset.
- * <p/>
+ *
  * Release v1.2
  * Added chance of finding enchanting tables (with book cases)
  * Added potion making stands on the top of work benches.
@@ -308,10 +309,10 @@ import java.util.List;
  * to the database (which I'll be doing in v1.3).
  * Prevented gold messages when players get 0 gold. Made the AdvancedCombat
  * rewards obey the GoldOff configuration.
- * <p/>
+ *
  * Release v1.1
  * Added option to allow Advanced Combat to be enabled.
- * <p/>
+ *
  * Release v1.0
  * Added an option for blaze spawners
  * Changed the default options so that secret doors will only work in dungeons by default
@@ -327,7 +328,7 @@ import java.util.List;
  * Fixed the code so that arrow kills get rewarded too.
  * Turned off a rather verbose console message that occurred when new options were being
  * added to the config file.
- * <p/>
+ *
  * Release v0.9
  * Fixed an in-game Null pointer exception during planning caused by special end rooms
  * Fixed bug which caused lava to be able to ignite things in dungeons
@@ -343,7 +344,7 @@ import java.util.List;
  * if you aren't in a dungeon (and it's close enough).
  * Integrated lots of code related to boss mobs that will guard the final chest
  * currently disabled while I run some more tests on it (due in v1.0)
- * <p/>
+ *
  * Release v0.8
  * Added arrow traps in random locations. Contents of the dispensers is configurable
  * Added configuration to totally fill the area above the ceiling with dungeon blocks
@@ -352,10 +353,10 @@ import java.util.List;
  * commands need to be done in game at present).
  * Added configuration to allow control over which blocks are breakable (these settings
  * are server wide - not per dungeon). The default list contains torch,web and mushrooms.
- * <p/>
+ *
  * Added code to ensure chunks are loaded/fresh to solve teleport problems.
  * Stopped Endermen placing blocks (only picking up blocks was blocked previously)
- * <p/>
+ *
  * Release v0.7
  * - Added a couple of beds to the hut.
  * - Fixed bug, removed extra loot on double chest refills.
@@ -394,7 +395,7 @@ import java.util.List;
  * - *EXPERIMENTAL* Added option to protect spawners inside dungeons from destruction.
  * I'm cancelling the event but the spawners are still breaking (need to debug)
  * - Known bukkit/minecraft issue. Client will crash if you build over a chest.
- * <p/>
+ *
  * Release v0.6
  * - A big update to the Catacombs configuration system. The existing configuration
  * file (config.yml) should still be ok (except for any custom loot lists you've
@@ -418,7 +419,7 @@ import java.util.List;
  * styles before calling '/cat reset <dungeon>' is handy if you want to define
  * several of your own custom loot lists to refill chests with. Be warned the
  * style is server wide and resets to 'catacomb' when you log.
- * <p/>
+ *
  * grand:
  * Archway:
  * DoubleWidthPct: 100
@@ -440,7 +441,7 @@ import java.util.List;
  * Medium:
  * List:
  * - torch:100:32
- * <p/>
+ *
  * - Added supported economy tools to the softdepend list in plugin.yml
  * - Added a configuration option to allow admins to block certain commands when
  * players are inside an enabled dungeon. The default list is this:
@@ -451,8 +452,8 @@ import java.util.List;
  * - /warp
  * - /setwarp
  * - /home
- * <p/>
- * <p/>
+ *
+ *
  * Release v0.5
  * - Removed the need for a MySQL database (moved to a wrapped version of bukkit's
  * integrated sqlite and java persistence to save the data - thanks to
@@ -485,7 +486,7 @@ import java.util.List;
  * they were deleting/unprotecting etc
  * - Remember to Credit  lennardf1989.bukkitex.MyDatabase for Persistence &
  * Nijikokun for Register
- * <p/>
+ *
  * Release v0.4
  * - Stop Endermen moving blocks in dungeons as they can block corridors/rooms
  * - Added CaveSpider spawners
@@ -499,7 +500,7 @@ import java.util.List;
  * reset or deleted.
  * - Getting strange client side crashes with bukkit 1185 when deleting dungeons, this
  * feature (delete) has been disabled for the moment.
- * <p/>
+ *
  * Release v0.3
  * - Added Soul Sand into the floor in some rooms to slow movement down
  * - Increased the number of initial mushrooms in rooms that contain them
@@ -518,6 +519,8 @@ import java.util.List;
  */
 
 public class Catacombs extends JavaPlugin {
+
+    private static Catacombs instance;
     private CatConfig cnf;
     private Dungeons dungeons;
     private CatSQL sql = null;
@@ -538,6 +541,7 @@ public class Catacombs extends JavaPlugin {
 
     @Override
     public void onLoad() {
+        instance=this;
         cnf = new CatConfig(getConfig());
         info = this.getDescription();
         //mobtypes = new MobTypes();
@@ -582,6 +586,7 @@ public class Catacombs extends JavaPlugin {
                 System.out.println("[" + info.getName() + "] Fixing Secret doors");
                 dungeons.fixSecretDoors();
             }
+            debug("Debug Mode Active");
             enabled = true;
         }
     }
@@ -742,9 +747,8 @@ public class Catacombs extends JavaPlugin {
                 // GOLD ********************************************************
             } else if (cmd(p, args, "gold")) {
                 if (p != null) {
-                    String pname = p.getName();
                     if (economy != null) {
-                        double bal = economy.getBalance(pname);
+                        double bal = economy.getBalance(p);
                         inform(p, "You have " + economy.format(bal));
                     }
                 }
@@ -914,12 +918,12 @@ public class Catacombs extends JavaPlugin {
 
                 // DEBUG
             } else if (cmd(p, args, "debug")) {
-//        ItemStack stk = new ItemStack(Material.IRON_SWORD);
-//        stk.addEnchantment(Enchantment.DAMAGE_ALL,5);
-//        stk.addEnchantment(Enchantment.KNOCKBACK,2);
-//        stk.addEnchantment(Enchantment.FIRE_ASPECT,2);
-//        stk.addEnchantment(Enchantment.LOOT_BONUS_MOBS,3);
-//        p.getWorld().dropItem(p.getLocation(), stk);
+                //ItemStack stk = new ItemStack(Material.IRON_SWORD);
+                //stk.addEnchantment(Enchantment.DAMAGE_ALL,5);
+                //stk.addEnchantment(Enchantment.KNOCKBACK,2);
+                //stk.addEnchantment(Enchantment.FIRE_ASPECT,2);
+                //stk.addEnchantment(Enchantment.LOOT_BONUS_MOBS,3);
+                //p.getWorld().dropItem(p.getLocation(), stk);
                 //Dungeon dung = dungeons.which(p.getLocation().getBlock());
                 //dung.buildWindows(Material.IRON_FENCE);
             } else {
@@ -943,7 +947,7 @@ public class Catacombs extends JavaPlugin {
             Dungeon dung = dungeons.which(p.getLocation().getBlock());
             if (dung != null)
                 return dung;
-            dung = dungeons.which(p.getTargetBlock((HashSet<Byte>) null, 1000));
+            dung = dungeons.which(p.getTargetBlock(null, 1000));
             if (dung != null)
                 return dung;
             inform(p, "Not in a dungeon (or not looking at one)");
@@ -1229,6 +1233,17 @@ public class Catacombs extends JavaPlugin {
         }
         y %= 360;
         return getDirection(y);
+    }
+
+    public static void log(String msg) {
+        if(instance!=null){
+            instance.getLogger().log(Level.INFO, msg);
+        }
+    }
+
+    public static void debug(String msg) {
+        if(instance.getCnf().debugMode())
+            log(" [Debug] " + msg);
     }
 
     private static Direction getDirection(double rot) {

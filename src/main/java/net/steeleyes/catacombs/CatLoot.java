@@ -58,19 +58,67 @@ public class CatLoot {
         }
     }
 
-    @SuppressWarnings("deprecation")
+    //Passes in a Catacombs config Item string (Currently formatted as itemname:dmgvalue:probability amount#-#[ enchant:lvl])
+    //Originally formatted as itemname[/dmgvalue]:probability:amount#-#[:enchant/lvl]
     public static ItemStack fs(String l) {
+        //Split into array of supposed to be 2 or more strings (itemname:dmgvalue:probability and amount#-# (name:&color_code_support lore:underscores_for_spaces enchantment:lvl )
         String[] sa = l.split(" ");
 
-        //Load type and amount
+        //If old style config format (no spaces), upconvert
+        if(sa.length==1){
+            String[] oldItemLine = sa[0].split(":");
+            StringBuilder newLine=new StringBuilder();
+            //Parse old style damage value via "/"
+            if(oldItemLine[0].contains("/")){
+                String[] itemDmg = oldItemLine[0].split("/");
+                if(itemDmg.length==2) {
+                    newLine.append(itemDmg[0]+":"+itemDmg[1]);
+                } else {
+                    Catacombs.log("Failed to parse loot entry "+oldItemLine.toString());
+                }
+            } else {
+                newLine.append(oldItemLine[0]+":0");
+            }
+            //Append probability
+            newLine.append(":"+oldItemLine[1]);
+            //Append space for new format
+            newLine.append(" ");
+            //Append amount after space
+            newLine.append(oldItemLine[2]);
+            //If old style enchants
+            if(oldItemLine.length>3){
+                //i = 3 is 4th item in array
+                for(int i=3; i<oldItemLine.length; i++){
+                    if(oldItemLine[i].contains("/")){
+                        newLine.append(" "+oldItemLine[i].replace("/",":"));
+                    } else {
+                        newLine.append(" "+oldItemLine[i]);
+                    }
+                }
+            }
+            Catacombs.debug("Upconverting old style config entry: "+newLine.toString());
+            //Presumably I have a properly updated formatted item string now and can resplit it
+            sa=newLine.toString().split(" ");
+        }
+        //Load type itemname:dmgvalue:probability
         String t = sa[0];
+        //Patch to make item damage value optional again
+        if(t.split(":").length==2){
+            String[] tShort = t.split(":");
+            StringBuffer tDefault = new StringBuffer(tShort[0]).append(":0:").append(tShort[1]);
+            t=tDefault.toString();
+        }
+        //Load amount
         int amount = 0;
         try {
+            //Split amount bounds into array, should be length 2 or 1 for no bounds
             String[] amountArray = sa[1].replace(" ", "").split("-");
+            //If no bounds parse int from single array entry
             if (amountArray.length == 1) amount = Integer.parseInt(amountArray[0]);
             else {
                 int max = Integer.parseInt(amountArray[1]);
                 int min = Integer.parseInt(amountArray[0]);
+                //Different math in random calculator
                 amount = new Random().nextInt(max - min) + min;
             }
         } catch (Exception ignored) {
@@ -81,9 +129,9 @@ public class CatLoot {
         Material m;
         Integer c;
         short dur = -1;
-
+        //Split itemname:dmgvalue:probability
         String[] td = t.split(":");
-
+        //if you leave off say for instance damage value :/
         if (td.length <= 2) {
             System.out.println("[Warning] Invalid item-length whilst loading lootList! (" + sa.length + "<3)");
             return null;
@@ -91,18 +139,22 @@ public class CatLoot {
 
         //Type
         try {
+            //TODO: This will break in 1.13!
+            //Attempt to process as an integer in the depreciated materialbyitemid method
             m = Material.getMaterial(Integer.parseInt(td[0]));
         } catch (Exception ignored) {
+            //If fails process by string name
             m = Material.matchMaterial(td[0]);
         }
 
-        //Data
+        //Durability which is required now..
         try {
             dur = Short.parseShort(td[1]);
         } catch (Exception ignored) {
         }
         if (dur < 0) dur = 0;
 
+        //Probability of loot
         try {
             c = Integer.parseInt(td[2]);
         } catch (Exception ignored) {
@@ -113,18 +165,25 @@ public class CatLoot {
         if (m == null) {
             System.out.println("[Warning] Invalid material-type whilst loading lootList! (" + td[0] + ")");
             return null;
+            //uh random chance of item not being placed in chest based on probability
         } else if (new Random().nextInt(100) >= c) return null;
 
         ItemStack i = new ItemStack(m, amount, dur);
 
         //Load and apply params
+        //If ' ' split array has more than itemname:dmgvalue:probability and amount#-#
         if (sa.length > 2) {
             ItemMeta im = i.getItemMeta();
+            //Start parsing tags after item amount
             for (int n = 2; n < sa.length; n++) {
+                //Split tags by :
                 String[] pa = sa[n].split(":");
+                //If more than a tag and a value, skip it
                 if (pa.length < 2) continue;
+                //if tag is "name" set the display name of the item. Underscores are converted to spaces
                 if (pa[0].equalsIgnoreCase("name")) {
                     im.setDisplayName(ChatColor.translateAlternateColorCodes('&', pa[1].replaceAll("_", " ")));
+                //if tag is "lore" set the display name of the item. Underscores are converted to spaces
                 } else if (pa[0].equalsIgnoreCase("lore")) {
                     List<String> lore = im.getLore();
                     if (lore == null) lore = new ArrayList<>();
@@ -134,6 +193,7 @@ public class CatLoot {
                 } else {
                     Enchantment e;
                     try {
+                        //TODO: This will break in 1.13!
                         e = Enchantment.getById(Integer.parseInt(pa[0]));
                     } catch (Exception ignored) {
                         e = Enchantment.getByName(pa[0]);

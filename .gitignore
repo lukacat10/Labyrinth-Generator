@@ -1,5 +1,3 @@
-/target/**
-
 .settings/
 .loadpath
 
@@ -14,3 +12,12 @@
 
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# IntelliJ Core
+.idea/
+
+# Build Script
+build.sh
+
+# Maven Build Path
+target/
